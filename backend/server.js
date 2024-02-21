@@ -36,6 +36,7 @@ const queryJoin = '/join?room=test&name=test';
 const queryRoom = '/?room=test';
 const packageJson = require('../package.json');
 
+let tunnelHttps;
 let server;
 if (isHttps) {
     const fs = require('fs');
@@ -208,10 +209,11 @@ app.post([`${apiBasePath}/join`], (req, res) => {
         });
         return res.status(403).json({ error: 'Unauthorized!' });
     }
-    const joinURL = api.getJoinURL(req.body);
+    const joinURL = api.getJoinURL(tunnelHttps, req.body);
     res.json({ join: joinURL });
     log.debug('MiroTalk get join - Authorized', {
         header: req.headers,
+        tunnel: tunnelHttps,
         body: req.body,
         join: joinURL,
     });
@@ -232,7 +234,7 @@ async function ngrokStart() {
         await ngrok.connect(port);
         const api = ngrok.getApi();
         const list = await api.listTunnels();
-        const tunnelHttps = list.tunnels[0].public_url;
+        tunnelHttps = list.tunnels[0].public_url;
         log.debug('settings', {
             ngrokAuthToken: ngrokAuthToken,
             iceServers: iceServers,

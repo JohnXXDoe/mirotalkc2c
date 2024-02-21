@@ -18,8 +18,8 @@ module.exports = class ServerApi {
         return this.getProtocol() + this._host + '/?room=' + uuidV4();
     }
 
-    getJoinURL(data) {
-        return this.getProtocol() + this._host + '/join?room=' + data.room + '&name=' + data.name;
+    getJoinURL(tunnel, data) {
+        return tunnel + '/join?room=' + data.room + '&name=' + data.name;
     }
 
     getProtocol() {
