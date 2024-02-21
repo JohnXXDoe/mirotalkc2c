@@ -15,8 +15,8 @@
         <meta property="og:site_name" content="Havells P2P PoC" />
         <meta property="og:title" content="Click the link to join this call." />
         <meta property="og:description" content="Havells P2P video calling using WEBRTC + microtalk PoC." />
-        <meta property="og:image" content="https://c2c.mirotalk.com/images/logo.svg" />
-        <meta property="og:url" content="https://c2c.mirotalk.com" />
+        <meta property="og:image" content="https://havells.com/content/dam/havells/logo.png" />
+        <meta property="og:url" content="https://havells.com" />
 
         <link rel="apple-touch-icon" href="../images/favicon.png" />
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico" />
@@ -60,13 +60,13 @@ Please allow camera & microphone.
                 <pre>
 Wait user to join.
                 </pre>
-                <button id="shareRoomBtn" class="fas fa-share-nodes"></button>
+                <!-- <button id="shareRoomBtn" class="fas fa-share-nodes"></button> -->
                 <button id="copyRoomBtn" class="fas fa-copy"></button>
-                <button id="initHideMeBtn" class="fas fa-user"></button>
+                <!-- <button id="initHideMeBtn" class="fas fa-user"></button> -->
                 <button id="initVideoBtn" class="fas fa-video"></button>
                 <button id="initAudioBtn" class="fas fa-microphone"></button>
-                <button id="initScreenShareBtn" class="fas fa-desktop"></button>
-                <button id="initSettingsBtn" class="fas fa-ellipsis-vertical"></button>
+                <!-- <button id="initScreenShareBtn" class="fas fa-desktop"></button> -->
+                <!-- <button id="initSettingsBtn" class="fas fa-ellipsis-vertical"></button> -->
                 <button id="initHomeBtn" class="fas fa-home"></button>
             </div>
         </div>
@@ -89,20 +89,20 @@ Wait user to join.
             <label><i class="fas fa-image"></i> Video quality</label>
             <select id="videoQualitySelect">
                 <option value="default">Default</option>
-                <option value="qvga">QVGA</option>
-                <option value="vga">VGA</option>
-                <option value="hd">HD</option>
-                <option value="fhd">FULL HD</option>
-                <option value="2k">2K</option>
-                <option value="4k">4K</option>
+                <!-- <option value="qvga">QVGA</option> -->
+                <option value="vga">Low</option>
+                <option value="hd">Medium</option>
+                <option value="fhd">High</option>
+                <!-- <option value="2k">2K</option>
+                <option value="4k">4K</option> -->
             </select>
             <label><i class="fas fa-gauge"></i> Video frame rate</label>
             <select id="videoFpsSelect">
                 <option value="default">Default</option>
-                <option value="60">60 fps</option>
+                <!-- <option value="60">60 fps</option> -->
                 <option value="30">30 fps</option>
                 <option value="15">15 fps</option>
-                <option value="5">5 fps</option>
+                <!-- <option value="5">5 fps</option> -->
             </select>
             <label for="audioSource"><i class="fas fa-microphone"></i> Microphone</label>
             <select id="audioSource"></select>
