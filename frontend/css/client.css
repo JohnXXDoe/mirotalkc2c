@@ -5,13 +5,13 @@
 --------------------------------------------------------------*/
 
 :root {
-    --primary-color: #202123;
-    --secondary-color: #45494c;
+    --primary-color: #f8f8f8;
+    --secondary-color: #ff0000;
     --chat-bg: #141519;
     --btn-bg: #f5f5f5;
     --video-hf-bg: rgba(0, 0, 0, 0.5);
     --btn-color: #000000;
-    --text-color: #f5f5f5;
+    --text-color: #ff0b0bf3;
     --hover-color: #45494c;
     --border: 0.1px solid #45494c;
     --border-radius: 1rem;
