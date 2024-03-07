@@ -120,8 +120,8 @@ document.getElementById("join-button").addEventListener("click", function() {
     var iframe = document.createElement("iframe");  
     iframe.allow = "camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; autoplay";  
     iframe.src = joinUrl;  
-    iframe.style.height = "50vh";  
-    iframe.style.width = "50vw";  
+    iframe.style.height = "50%";  
+    iframe.style.width = "50%";  
     iframe.style.border = "0px";  
 
     // Replace the existing content with the iframe  
