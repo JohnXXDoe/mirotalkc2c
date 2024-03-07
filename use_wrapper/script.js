@@ -52,7 +52,7 @@ document.getElementById("join-button").addEventListener("click", function() {
   //     console.error("Error calling API-1:", error);  
   //   });  
 
-  fetch("https://3202-35-236-148-45.ngrok-free.app/api/v1/join", {  
+  fetch("https://24a7-35-236-148-45.ngrok-free.app/api/v1/join", {  
     method: "POST",  
     headers: {  
       "accept": "application/json",  

@@ -181,7 +181,7 @@ const tooltips = [
     { element: initAudioBtn, text: 'Toggle audio', position: 'top' },
     { element: initScreenShareBtn, text: 'Toggle screen sharing', position: 'top' },
     { element: initSettingsBtn, text: 'Toggle settings', position: 'top' },
-    { element: initHomeBtn, text: 'Go to home page', position: 'top' },
+    { element: initHomeBtn, text: 'Leave call', position: 'top' },
     { element: hideMeBtn, text: 'Hide myself', position: 'top' },
     { element: videoBtn, text: 'Toggle video', position: 'top' },
     { element: audioBtn, text: 'Toggle audio', position: 'top' },
@@ -251,11 +251,17 @@ function handleConnect() {
     } else {
         setupLocalMedia(async () => {
             await enumerateDevices();
+            console.log("Passed enumerateDevices")
             handleVideoWrapSize();
+            console.log("Passed handleVideoWrapSize")
             getDocumentElementsById();
+            console.log("Passed getDocumentElementsById")
             handleEvents();
+            console.log("Passed handleEvents")
             loadLocalStorageConfig();
+            console.log("Passed loadLocalStorageConfig")
             showWaitingUser();
+            console.log("Passed showWaitingUser")
             joinToChannel();
         });
     }
@@ -744,51 +750,57 @@ function handleIncomingDataChannelMessage(config) {
 }
 
 function handleEvents() {
+    elemDisplay(initScreenShareBtn, false);
+    elemDisplay(screenShareBtn, false);
+    elemDisplay(initHideMeBtn, false);
+    elemDisplay(initVideoBtn, false);
+    elemDisplay(initAudioBtn, false);
     initHomeBtn.onclick = () => {
         endCall();
     };
     copyRoomBtn.onclick = () => {
         copyRoom();
     };
-    if (navigator.share) {
-        shareRoomBtn.onclick = () => {
-            shareRoom();
-        };
-    } else {
-        elemDisplay(shareRoomBtn, false);
-    }
-    initHideMeBtn.onclick = () => {
-        toggleHideMe();
-    };
-    initAudioBtn.onclick = (e) => {
-        setAudioStatus(!localMediaStream.getAudioTracks()[0].enabled, e);
-    };
-    initVideoBtn.onclick = (e) => {
-        setVideoStatus(!localMediaStream.getVideoTracks()[0].enabled, e);
-    };
     initSettingsBtn.onclick = () => {
         settingsBtn.click();
     };
-    hideMeBtn.onclick = () => {
-        toggleHideMe();
-    };
-    audioBtn.onclick = (e) => {
-        setAudioStatus(!localMediaStream.getAudioTracks()[0].enabled, e);
-    };
-    videoBtn.onclick = (e) => {
-        setVideoStatus(!localMediaStream.getVideoTracks()[0].enabled, e);
-    };
-    if (!isMobileDevice && (navigator.getDisplayMedia || navigator.mediaDevices.getDisplayMedia)) {
-        initScreenShareBtn.onclick = async () => {
-            await toggleScreenSharing();
-        };
-        screenShareBtn.onclick = async () => {
-            await toggleScreenSharing();
-        };
-    } else {
-        elemDisplay(initScreenShareBtn, false);
-        elemDisplay(screenShareBtn, false);
-    }
+    // if (navigator.share) {
+    //     shareRoomBtn.onclick = () => {
+    //         shareRoom();
+    //     };
+    // } else {
+    //     elemDisplay(shareRoomBtn, false);
+    // }
+    // initHideMeBtn.onclick = () => {
+    //     toggleHideMe();
+    // };
+    // initAudioBtn.onclick = (e) => {
+    //     setAudioStatus(!localMediaStream.getAudioTracks()[0].enabled, e);
+    // };
+    // initVideoBtn.onclick = (e) => {
+    //     setVideoStatus(!localMediaStream.getVideoTracks()[0].enabled, e);
+    // };
+    
+    // hideMeBtn.onclick = () => {
+    //     toggleHideMe();
+    // };
+    // audioBtn.onclick = (e) => {
+    //     setAudioStatus(!localMediaStream.getAudioTracks()[0].enabled, e);
+    // };
+    // videoBtn.onclick = (e) => {
+    //     setVideoStatus(!localMediaStream.getVideoTracks()[0].enabled, e);
+    // };
+    // if (!isMobileDevice && (navigator.getDisplayMedia || navigator.mediaDevices.getDisplayMedia)) {
+    //     initScreenShareBtn.onclick = async () => {
+    //         await toggleScreenSharing();
+    //     };
+    //     screenShareBtn.onclick = async () => {
+    //         await toggleScreenSharing();
+    //     };
+    // } else {
+    //     elemDisplay(initScreenShareBtn, false);
+    //     elemDisplay(screenShareBtn, false);
+    // }
     navigator.mediaDevices.enumerateDevices().then((devices) => {
         const videoInput = devices.filter((device) => device.kind === 'videoinput');
         if (videoInput.length > 1 && isMobileDevice) {
@@ -822,7 +834,7 @@ function handleEvents() {
     videoFpsSelect.onchange = (e) => {
         refreshVideoConstraints();
     };
-    //switchMaxVideoQuality.checked = localStorageConfig.video.settings.best_quality;
+    // switchMaxVideoQuality.checked = localStorageConfig.video.settings.best_quality;
     switchMaxVideoQuality.onchange = (e) => {
         localStorageConfig.video.settings.best_quality = e.currentTarget.checked;
         saveLocalStorageConfig();

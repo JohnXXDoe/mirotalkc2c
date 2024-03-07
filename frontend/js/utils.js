@@ -133,13 +133,13 @@ function copyRoom() {
         document.body.removeChild(tmpInput);
         popupMessage(
             'clean',
-            'Room sharing',
+            'Video room joining QR',
             `<div id="qrRoomContainer">
                 <canvas id="qrRoom"></canvas>
             </div>
             <br/>
             <p style="color:rgb(8, 189, 89);">Join from your mobile device</p>
-            <p style="background:transparent; color:white; font-family: Arial, Helvetica, sans-serif;">No need for apps, simply capture the QR code with your mobile camera Or Invite someone else to join by sending them the following URL</p>
+            <p style="background:transparent; color:white; font-family: Arial, Helvetica, sans-serif;">Scan/share the QR code with your mobile camera Or Invite client to join by sending them the following URL</p>
             <p style="color:rgb(8, 189, 89);">${roomURL}</p>`,
         );
         makeRoomQR();

@@ -117,17 +117,17 @@ document.getElementById("join-button").addEventListener("click", function() {
     window.localStorage.room = roomId.value;
     window.localStorage.name = "Havells Expert";
 
-    // var iframe = document.createElement("iframe");  
-    // iframe.allow = "camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; autoplay";  
-    // iframe.src = joinUrl;  
-    // iframe.style.height = "50vh";  
-    // iframe.style.width = "50vw";  
-    // iframe.style.border = "0px";  
+    var iframe = document.createElement("iframe");  
+    iframe.allow = "camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; autoplay";  
+    iframe.src = joinUrl;  
+    iframe.style.height = "50vh";  
+    iframe.style.width = "50vw";  
+    iframe.style.border = "0px";  
 
     // Replace the existing content with the iframe  
-    // var body = document.getElementsByTagName("body")[0];  
-    // body.innerHTML = "";  
-    // body.appendChild(iframe);  
+    var body = document.getElementsByTagName("body")[0];  
+    body.innerHTML = "";  
+    body.appendChild(iframe);  
     })
     .catch(function(error) {  
     console.error("Error calling WA sided:", error);  

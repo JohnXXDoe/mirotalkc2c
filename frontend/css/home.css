@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Comfortaa:wght@500&display=swap');
 
 :root {
-    --primary-color: #202123;
-    --secondary-color: #45494c;
-    --text-color: #f5f5f5;
+    --primary-color: #ffffff;
+    --secondary-color: rgba(255, 71, 71, 0.589);
+    --text-color: #000000;
 }
 
 body {
@@ -90,7 +90,7 @@ button:hover {
     padding: 0px;
     margin-top: 40px;
     width: 100%;
-    color: #bbbbbb;
+    color: #000000;
     background-color: transparent;
     font-size: 0.7em;
     font-weight: bold;
