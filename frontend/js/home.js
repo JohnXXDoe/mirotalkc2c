@@ -97,7 +97,7 @@ document.getElementById("join-button").addEventListener("click", function() {
         ],
         "buttonValues":{
         
-        "1" :[joinUrl]
+        "1" :[window.location.origin + '/join?room=' + roomId + '&name=' + "Customer"]
         }
         }})  
     })

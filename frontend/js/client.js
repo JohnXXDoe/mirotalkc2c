@@ -774,9 +774,9 @@ function handleEvents() {
     // initHideMeBtn.onclick = () => {
     //     toggleHideMe();
     // };
-    // initAudioBtn.onclick = (e) => {
-    //     setAudioStatus(!localMediaStream.getAudioTracks()[0].enabled, e);
-    // };
+    initAudioBtn.onclick = (e) => {
+        setAudioStatus(!localMediaStream.getAudioTracks()[0].enabled, e);
+    };
     // initVideoBtn.onclick = (e) => {
     //     setVideoStatus(!localMediaStream.getVideoTracks()[0].enabled, e);
     // };
@@ -784,23 +784,23 @@ function handleEvents() {
     // hideMeBtn.onclick = () => {
     //     toggleHideMe();
     // };
-    // audioBtn.onclick = (e) => {
-    //     setAudioStatus(!localMediaStream.getAudioTracks()[0].enabled, e);
-    // };
+    audioBtn.onclick = (e) => {
+        setAudioStatus(!localMediaStream.getAudioTracks()[0].enabled, e);
+    };
     // videoBtn.onclick = (e) => {
     //     setVideoStatus(!localMediaStream.getVideoTracks()[0].enabled, e);
     // };
-    // if (!isMobileDevice && (navigator.getDisplayMedia || navigator.mediaDevices.getDisplayMedia)) {
-    //     initScreenShareBtn.onclick = async () => {
-    //         await toggleScreenSharing();
-    //     };
-    //     screenShareBtn.onclick = async () => {
-    //         await toggleScreenSharing();
-    //     };
-    // } else {
-    //     elemDisplay(initScreenShareBtn, false);
-    //     elemDisplay(screenShareBtn, false);
-    // }
+    if (!isMobileDevice && (navigator.getDisplayMedia || navigator.mediaDevices.getDisplayMedia)) {
+        initScreenShareBtn.onclick = async () => {
+            await toggleScreenSharing();
+        };
+        screenShareBtn.onclick = async () => {
+            await toggleScreenSharing();
+        };
+    } else {
+        elemDisplay(initScreenShareBtn, false);
+        elemDisplay(screenShareBtn, false);
+    }
     navigator.mediaDevices.enumerateDevices().then((devices) => {
         const videoInput = devices.filter((device) => device.kind === 'videoinput');
         if (videoInput.length > 1 && isMobileDevice) {
